@@ -1,0 +1,132 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top:1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.content .select-container{
+  width: 100%;
+  text-align: right;
+}
+.content .card {
+    display: flex;
+    flex-basis: 260px;
+    background: #eee;
+    margin: 0.6rem 1rem;
+    height: 260px;
+    padding: 12px;
+    justify-content: space-around;
+    padding-bottom:4rem;
+}
+ 
+.content .card.loading  {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+.content .card.loading:before {
+  content: '';
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #eee;
+  z-index: 2;
+}
+
+.content .card.loading:after {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: auto !important;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #eee), color-stop(20%, rgba(105, 105, 105, 0.1)), color-stop(65%, white), to(#eee));
+  background-image: linear-gradient(90deg, #eee 0, rgba(105, 105, 105, 0.1) 20%, white 65%, #eee);
+  -webkit-animation: shimmer 2s infinite;
+  animation: shimmer 2s infinite;
+  content: '';
+  z-index: 3;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  color: white;
+}
+.content .card .description {
+  height: 3rem;
+  align-items: center;
+  display: flex;
+  background: gray; 
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 5;
+}
+ .content .card .description .card-name{
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0px;
+  color:white;
+  width:100%;
+ }
+.content .btn-loadmore{
+  width:100%;
+  text-align: center;
+  margin-top:24px;
+  margin-bottom: 16px;
+}
+.content .waypoint-loading{
+    width: 100%;
+    background: blue;
+    height: 240px;
+    text-align: center;
+    font-size: 5.5rem;
+    color:white;
+}
+.content .waypoint-loading:after {
+    content: ' .';
+    font-size: 7.5rem;
+    animation: dots 1s steps(5, end) infinite;}
+  
+  @keyframes dots {
+    0%, 20% {
+      color: rgba(0,0,0,0);
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+      color: white;
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}}
+  
+        @-webkit-keyframes shimmer {
+          100% {
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+          }
+        }
+        
+        @keyframes shimmer {
+          100% {
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+          }
+        }

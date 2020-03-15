@@ -1,0 +1,12 @@
+Json generator üzerinden oluşturuldu
+https://www.json-generator.com/
+
+[
+  '{{repeat(0, 200)}}',
+  {
+    id: '{{objectId()}}', 
+    description: '{{lorem(1, "paragraphs")}}', 
+    name:  '{{lorem(5, "words")}}',
+    chartType: '{{integer(1,3)}}'
+  }
+]
