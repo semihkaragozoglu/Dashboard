@@ -1,6 +1,6 @@
 import { cardConstants } from '../constants/card.constant';
   
-export default function cardReducer(state = {currentIndex: 0, loading: false, cards: [], refreshTimeInMS: 100000}, action) {
+export default function cardReducer(state = {currentIndex: 0, loading: false, cards: [], refreshTimeInMS: 10000}, action) {
     switch (action.type) {
         case cardConstants.GET_CHART_DATA_REQUEST:
             return {
