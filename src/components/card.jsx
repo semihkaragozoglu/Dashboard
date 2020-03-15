@@ -12,7 +12,8 @@ export default class Card extends React.Component {
             description: this.props.data.description,
             chartType: this.props.data.chartType,
             data: null,
-            intervalId: null
+            intervalId: null,
+            timeOutId: null
         };
         this.getChartData = this.getChartData.bind(this);
         this.refreshChartData = this.refreshChartData.bind(this);
@@ -31,6 +32,7 @@ export default class Card extends React.Component {
     
     componentWillUnmount() { 
         clearInterval(this.state.intervalId);
+        clearTimeout(this.state.timeOutId);
     }
      
     getChartData(){
@@ -38,12 +40,15 @@ export default class Card extends React.Component {
             .then(
                 data => { 
                     const {chartData , fakeResponseTimeInMS} = data.filter(x=> x.id === this.state.id)[0]; 
-                    setTimeout(() => {
+                    var timeOutId = setTimeout(() => {
                         this.setState({
                             isLoading: false,
                             data: chartData
                         });
                     }, fakeResponseTimeInMS);
+                    this.setState({
+                        timeOutId: timeOutId
+                    });
                 },
                 error => {
                     // console.log("error");
