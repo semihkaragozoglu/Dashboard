@@ -6,15 +6,12 @@ import {
  } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faHome, faCalendar, faArrowRight } from '@fortawesome/free-solid-svg-icons' 
+import { faCoffee, faHome, faArrowRight } from '@fortawesome/free-solid-svg-icons' 
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { NavLink as RRNavLink } from 'react-router-dom';
 
-export default class Sidebar extends React.Component {
-    constructor(props){
-        super(props); 
-    } 
- 
+export default class Sidebar extends React.Component { 
+
     render() {
         const { toggle } = this.props;
         return ( 
@@ -29,15 +26,15 @@ export default class Sidebar extends React.Component {
             </div>
             <div className="sidebar-profile">  
                 <div className="img-profile">
-                    <img src="/img/profile.jpg" className="img-fluid"></img>
+                    <img src="/img/profile.jpg" alt="my profile" className="img-fluid"></img>
                 </div>
                 <div className="detail">  
                     <p>Semih Karagözoğlu</p>
                     <p>Frontend Developer</p>
-                    <a href="https://github.com/semihkaragozoglu" target="_blank">
+                    <a href="https://github.com/semihkaragozoglu" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faGithub} />     
                     </a>
-                    <a href="https://www.linkedin.com/in/semih-karag%C3%B6zo%C4%9Flu-10a84491/" target="_blank">
+                    <a href="https://www.linkedin.com/in/semih-karag%C3%B6zo%C4%9Flu-10a84491/" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faLinkedin} />     
                     </a>
                 </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { cardHelper } from '../../helpers';
-import { cardActions } from '../../actions';
 import { connect } from 'react-redux';
 import Card from '../card';
 import {SelectRefreshTime} from '../SelectRefreshTime';

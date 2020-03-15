@@ -62,7 +62,7 @@ export default class Card extends React.Component {
      }
  
     render() { 
-        const { id, name, description, chartType, isLoading, data } = this.state;
+        const { name, chartType, isLoading, data } = this.state;
         return ( 
           <div className={"card " + (isLoading ? "loading" : "") }>
               {

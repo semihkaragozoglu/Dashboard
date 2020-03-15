@@ -1,15 +1,8 @@
 import React, { PureComponent } from 'react';
 import {PieChart, LineChart, RadarChart, BarChart} from './index'; 
-import {chartTypeConstants } from '../../constants/chartTypes.constant';
-import {ResponsiveContainer } from 'recharts';
-
- 
+import {chartTypeConstants } from '../../constants/chartTypes.constant'; 
 
 class Chart extends PureComponent { 
-constructor(props){
-    super(props);
-} 
-
   render() {
       const {data, chartType} = this.props;
     return (

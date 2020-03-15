@@ -1,4 +1,4 @@
-import { store } from '../helpers';
+// import { store } from '../helpers';
 export function authHeader() {
 
     // return authorization header with jwt token

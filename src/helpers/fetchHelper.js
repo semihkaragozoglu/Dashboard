@@ -1,5 +1,4 @@
-import { store } from '../helpers';
-
+// import { store } from '../helpers';
 function handleResponse(response) {
     return new Promise((resolve, reject) => {
         if (response.ok) {
