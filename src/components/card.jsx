@@ -13,10 +13,10 @@ export default class Card extends React.Component {
             chartType: this.props.data.chartType,
             data: null,
             intervalId: null,
-            timeOutId: null
+            timeOutId: null,
+            refreshTimeInMS: null
         };
         this.getChartData = this.getChartData.bind(this);
-        this.refreshChartData = this.refreshChartData.bind(this);
     }
     componentDidMount(){
         if(this.state.intervalId !== null){ 
@@ -26,7 +26,8 @@ export default class Card extends React.Component {
         var intervalId = setInterval(()=> 
             this.getChartData(), this.props.refreshTimeInMS);
         this.setState({
-            intervalId: intervalId
+            intervalId: intervalId,
+            refreshTimeInMS: this.props.refreshTimeInMS
         });
     } 
     
@@ -40,6 +41,10 @@ export default class Card extends React.Component {
             .then(
                 data => { 
                     const {chartData , fakeResponseTimeInMS} = data.filter(x=> x.id === this.state.id)[0]; 
+                    this.setState({
+                        isLoading: true,
+                        data: chartData
+                    });
                     var timeOutId = setTimeout(() => {
                         this.setState({
                             isLoading: false,
@@ -56,11 +61,20 @@ export default class Card extends React.Component {
             ); 
     }
    
-    refreshChartData() { 
-        this.getChartData();
-     }
- 
-    render() { 
+    componentDidUpdate(){
+        if(this.state.intervalId !== null && this.state.refreshTimeInMS !== this.props.refreshTimeInMS){
+
+            clearInterval(this.state.intervalId);
+            var intervalId = setInterval(()=> 
+                this.getChartData(), this.props.refreshTimeInMS);
+            this.setState({
+                intervalId: intervalId,
+                refreshTimeInMS: this.props.refreshTimeInMS
+            });
+        }   
+    }
+  
+    render() {
         const { name, chartType, isLoading, data } = this.state;
         return ( 
           <div className={"card " + (isLoading ? "loading" : "") }>

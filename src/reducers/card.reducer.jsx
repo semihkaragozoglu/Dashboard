@@ -40,7 +40,7 @@ export default function cardReducer(state = {currentIndex: 0, loading: false, ca
         case cardConstants.CHANGE_REFRESH_TIME:
         return {
                 ...state,
-                refreshTimeInMS: action.refreshTimeInMS
+                refreshTimeInMS: action.timeInMS
             }; 
         case cardConstants.GET_ITEM_LIST_FAILURE:
             return {
