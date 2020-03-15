@@ -37,14 +37,13 @@ export default class Card extends React.Component {
     }
      
     getChartData(){
+        this.setState({
+            isLoading: true
+        });
         cardService.getChartData() 
             .then(
                 data => { 
-                    const {chartData , fakeResponseTimeInMS} = data.filter(x=> x.id === this.state.id)[0]; 
-                    this.setState({
-                        isLoading: true,
-                        data: chartData
-                    });
+                    const {chartData , fakeResponseTimeInMS} = data.filter(x=> x.id === this.state.id)[0];
                     var timeOutId = setTimeout(() => {
                         this.setState({
                             isLoading: false,
