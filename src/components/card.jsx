@@ -57,7 +57,6 @@ export default class Card extends React.Component {
     }
    
     refreshChartData() { 
-        console.log("refreshed");
         this.getChartData();
      }
  
@@ -70,7 +69,7 @@ export default class Card extends React.Component {
                   <Chart data={data} chartType={chartType}/>
                   :
                   <div>
-                      <p style={{fontSize: '60px'}}>Yükleniyor</p>
+                      <p>Yükleniyor</p>
                   </div>
                  
               }   
